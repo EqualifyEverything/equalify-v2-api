@@ -1,4 +1,4 @@
-import { db, event, graphql } from '#src/utils';
+import { db, event, graphqlQuery } from '#src/utils';
 
 export const getAuditResults = async () => {
     const audit_id = event.queryStringParameters.id;
@@ -36,7 +36,7 @@ export const getAuditResults = async () => {
         variables: { audit_id: audit_id },
     };
     console.log(JSON.stringify({ query }));
-    const response = await graphql(query);
+    const response = await graphqlQuery(query);
     const filteredNodes = response.nodes ?? [];
     console.log(JSON.stringify({ response }));
 

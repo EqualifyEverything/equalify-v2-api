@@ -13,15 +13,15 @@
   "dependencies": {},
   "type": "module",
   "devDependencies": {
-    "esbuild": "^0.25.0",
-    "aws-jwt-verify": "^4.0.1",
-    "serverless-postgres": "^2.1.1",
-    "openai": "^4.86.2",
-    "stripe": "^17.7.0",
-    "@types/node": "^20.12.7",
+    "@types/node": "^22.14.1",
+    "aws-jwt-verify": "^5.0.0",
     "cheerio": "^1.0.0",
+    "esbuild": "^0.25.0",
+    "openai": "^4.86.2",
+    "serverless-postgres": "^2.1.1",
     "string-strip-html": "^13.4.8",
-    "uuid": "^10.0.0"
+    "stripe": "^18.0.0",
+    "uuid": "^11.1.0"
   },
   "imports": {
     "#src/*": "./*"

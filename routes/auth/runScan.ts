@@ -32,18 +32,16 @@ export const runScan = async () => {
             })).rows[0];
         }
 
-        if (!audit?.is_sitemap) {
-            lambda.send(new InvokeCommand({
-                FunctionName: `equalifyv2-api${isStaging ? '-staging' : ''}`,
-                InvocationType: "Event",
-                Payload: Buffer.from(JSON.stringify({
-                    path: '/internal/processScans',
-                    organization_id: event.claims.profile,
-                    audit_id: audit_id,
-                    is_sitemap: true,
-                })),
-            }));
-        }
+        lambda.send(new InvokeCommand({
+            FunctionName: `equalifyv2-api${isStaging ? '-staging' : ''}`,
+            InvocationType: "Event",
+            Payload: Buffer.from(JSON.stringify({
+                path: '/internal/processScans',
+                organization_id: event.claims.profile,
+                audit_id: audit_id,
+                is_sitemap: audit?.is_sitemap,
+            })),
+        }));
     }
     catch (err) {
         console.log(err);
@@ -52,6 +50,6 @@ export const runScan = async () => {
 
     return {
         status: 'success',
-        message: 'Scans successfully queued',
+        message: 'Scan successfully queued',
     };
 }

@@ -1,7 +1,6 @@
 import { event } from '#src/utils';
 
 export const tokenGeneration = async () => {
-    console.log(JSON.stringify({ attributes: event.request.userAttributes }))
     event.response = {
         claimsOverrideDetails: {
             claimsToAddOrOverride: {

@@ -1,8 +1,7 @@
 import { cognitoRouter, publicRouter, authRouter, internalRouter, scheduledRouter, hasuraRouter } from "#src/routes";
-import { apiEvent, apiResponse } from "./types";
 import { setEvent } from "#src/utils";
 
-export const handler = async (rawEvent: apiEvent): Promise<apiResponse> => {
+export const handler = async (rawEvent) => {
   const event = setEvent(rawEvent);
 
   if (event.triggerSource) {
