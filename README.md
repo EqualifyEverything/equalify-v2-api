@@ -103,4 +103,4 @@ We welcome contributions! Please follow these steps:
 
 ## License
 
-This project's code is published under the [GNU Affero General Public License v3.0](https://g
+This project's code is published under the GNU Affero General Public License v3.0

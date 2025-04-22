@@ -7,8 +7,6 @@ export let event = {
 };
 
 export const setEvent = (rawEvent) => {
-    console.log(rawEvent);
-
     try {
         rawEvent.body ? rawEvent.rawBody = rawEvent.body : null;
         rawEvent.body ? rawEvent.body = JSON.parse(rawEvent.body) : null;
