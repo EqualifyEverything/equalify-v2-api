@@ -10,16 +10,18 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {},
+  "type": "module",
+  "devDependencies": {
+    "esbuild": "^0.25.0",
     "aws-jwt-verify": "^4.0.1",
     "serverless-postgres": "^2.1.1",
     "openai": "^4.86.2",
     "stripe": "^17.7.0",
-    "string-strip-html": "^13.4.12"
-  },
-  "type": "module",
-  "devDependencies": {
-    "esbuild": "^0.25.0"
+    "@types/node": "^20.12.7",
+    "cheerio": "^1.0.0",
+    "string-strip-html": "^13.4.8",
+    "uuid": "^10.0.0"
   },
   "imports": {
     "#src/*": "./*"

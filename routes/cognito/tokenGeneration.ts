@@ -1,6 +1,7 @@
 import { event } from '#src/utils';
 
 export const tokenGeneration = async () => {
+    console.log(JSON.stringify({ attributes: event.request.userAttributes }))
     event.response = {
         claimsOverrideDetails: {
             claimsToAddOrOverride: {
@@ -8,6 +9,7 @@ export const tokenGeneration = async () => {
                     'x-hasura-allowed-roles': ['user'],
                     'x-hasura-default-role': 'user',
                     'x-hasura-user-id': event.request.userAttributes.sub,
+                    'x-hasura-org-id': event.request.userAttributes.profile,
                 })
             }
         }

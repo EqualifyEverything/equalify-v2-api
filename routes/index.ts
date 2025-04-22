@@ -1,6 +1,6 @@
 import { router, event, setEvent, logEvent } from '#src/utils';
 import * as authRoutes from "./auth";
-import { customMessageForgotPassword, customMessageSignUp, customMessageUpdateUserAttribute, postConfirmationConfirmForgotPassword, tokenGeneration } from "./cognito";
+import { preSignUpSignUp, tokenGeneration } from "./cognito";
 import * as internalRoutes from "./internal";
 import * as publicRoutes from "./public";
 import * as scheduledRoutes from "./scheduled";
@@ -24,16 +24,7 @@ export const authRouter = async () => {
 export const cognitoRouter = async () => {
     logEvent(event);
     if (event.triggerSource === "CustomMessage_SignUp") {
-        return customMessageSignUp();
-    }
-    else if (event.triggerSource === "CustomMessage_UpdateUserAttribute") {
-        return customMessageUpdateUserAttribute();
-    }
-    else if (event.triggerSource === "CustomMessage_ForgotPassword") {
-        return customMessageForgotPassword();
-    }
-    else if (event.triggerSource === "PostConfirmation_ConfirmForgotPassword") {
-        return postConfirmationConfirmForgotPassword();
+        return preSignUpSignUp();
     }
     else if (['TokenGeneration_Authentication', 'TokenGeneration_RefreshTokens', 'TokenGeneration_AuthenticateDevice'].includes(event.triggerSource)) {
         return tokenGeneration();

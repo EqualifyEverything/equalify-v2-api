@@ -1,2 +1,5 @@
 export * from './checkSessionId'
 export * from './stripeWebhook'
+export * from './testPublic'
+export * from './createUser'
+export * from './authenticate'

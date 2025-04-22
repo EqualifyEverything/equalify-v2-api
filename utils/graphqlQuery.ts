@@ -1,8 +1,8 @@
-import { event, isStaging } from '.';
+import { event } from '.';
 
 export const graphqlQuery = async ({ query, variables = {} }) => {
     const Authorization = event?.headers?.authorization;
-    const response = (await (await fetch(`https://graphqlv2${isStaging ? '-staging' : ''}.${process.env.URL}/v1/graphql`, {
+    const response = (await (await fetch(`https://graphqlv2.${process.env.URL}/v1/graphql`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
