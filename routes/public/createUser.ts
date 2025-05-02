@@ -15,6 +15,7 @@ export const createUser = async () => {
                 { Name: 'email_verified', Value: 'true' },
                 { Name: 'name', Value: name },
                 { Name: 'profile', Value: organizationId },
+                { Name: 'website', Value: 'api-flow' },
             ],
         });
         await cognito.adminSetUserPassword({

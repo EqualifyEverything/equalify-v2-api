@@ -1,6 +1,6 @@
 import { router, event, setEvent, logEvent } from '#src/utils';
 import * as authRoutes from "./auth";
-import { preSignUpSignUp, tokenGeneration } from "./cognito";
+import { postConfirmationConfirmSignUp, preSignUpSignUp, tokenGeneration } from "./cognito";
 import * as internalRoutes from "./internal";
 import * as publicRoutes from "./public";
 import * as scheduledRoutes from "./scheduled";
@@ -23,8 +23,11 @@ export const authRouter = async () => {
 
 export const cognitoRouter = async () => {
     logEvent(event);
-    if (event.triggerSource === "CustomMessage_SignUp") {
+    if (event.triggerSource === "PreSignUp_SignUp") {
         return preSignUpSignUp();
+    }
+    else if (event.triggerSource === "PostConfirmation_ConfirmSignUp") {
+        return postConfirmationConfirmSignUp();
     }
     else if (['TokenGeneration_Authentication', 'TokenGeneration_RefreshTokens', 'TokenGeneration_AuthenticateDevice'].includes(event.triggerSource)) {
         return tokenGeneration();
